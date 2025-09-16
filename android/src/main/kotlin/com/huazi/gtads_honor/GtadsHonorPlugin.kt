@@ -1,4 +1,4 @@
-package com.huazi.gtads_huawei
+package com.huazi.gtads_honor
 
 import android.app.Activity
 import android.content.Context
@@ -15,7 +15,7 @@ import io.flutter.plugin.common.MethodChannel.Result
 
 
 /** GtadsHuaweiPlugin */
-class GtadsHuaweiPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
+class GtadsHonor : FlutterPlugin, MethodCallHandler, ActivityAware {
     private var applicationContext: Context? = null
     private var mActivity: Activity? = null
 
@@ -27,7 +27,7 @@ class GtadsHuaweiPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         this.applicationContext = flutterPluginBinding.applicationContext
-        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "gtads_huawei")
+        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "gtads_honor")
         channel.setMethodCallHandler(this)
         FlutterHuaweiAdEventPlugin().onAttachedToEngine(flutterPluginBinding)
     }

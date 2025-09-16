@@ -4,14 +4,14 @@ import 'package:gtads/gtads.dart';
 
 import 'flutter_huaweiad_callback.dart';
 import 'flutter_huaweiad_stream.dart';
-import 'gtads_huawei_plugin.dart';
+import 'gtads_honor_plugin.dart';
 
-class GTAdsHuaweiProvider extends GTAdsProvider {
-  GTAdsHuaweiProvider(String alias) : super(alias, '', '');
+class GTAdsHonorProvider extends GTAdsProvider {
+  GTAdsHonorProvider(String alias) : super(alias, '', '');
 
   @override
   Future<bool> initAd(bool isDebug) async {
-    return MethodChannelGtadsHuawei.init(isDebug);
+    return MethodChannelGtadsHonor.init(isDebug);
   }
 
   @override
@@ -41,7 +41,7 @@ class GTAdsHuaweiProvider extends GTAdsProvider {
           }
         },
         onReady: () async {
-          await MethodChannelGtadsHuawei.showUnifiedInterstitialAD();
+          await MethodChannelGtadsHonor.showUnifiedInterstitialAD();
         },
         onUnReady: () {
           if (callBack != null && callBack.onFail != null) {
@@ -55,7 +55,7 @@ class GTAdsHuaweiProvider extends GTAdsProvider {
         },
       ),
     );
-    MethodChannelGtadsHuawei.loadInterstitialAD(
+    MethodChannelGtadsHonor.loadInterstitialAD(
         androidId: adCode.androidId ?? "", ohosId: adCode.ohosId ?? "");
     return stream;
   }
@@ -88,7 +88,7 @@ class GTAdsHuaweiProvider extends GTAdsProvider {
           callBack.onClose!(adCode);
         }
       }, onReady: () async {
-        await MethodChannelGtadsHuawei.showRewardVideoAd();
+        await MethodChannelGtadsHonor.showRewardVideoAd();
       }, onUnReady: () {
         if (callBack != null && callBack.onFail != null) {
           callBack.onFail!(adCode, "激励广告预加载未准备就绪");
@@ -103,7 +103,7 @@ class GTAdsHuaweiProvider extends GTAdsProvider {
         }
       }),
     );
-    MethodChannelGtadsHuawei.loadRewardVideoAd(
+    MethodChannelGtadsHonor.loadRewardVideoAd(
       //android广告id
       androidId: adCode.androidId ?? "",
       ohosId: adCode.ohosId ?? "",

@@ -1,8 +1,8 @@
 import 'package:flutter/services.dart';
 
 /// An implementation of [GtadsHuaweiPlatform] that uses method channels.
-class MethodChannelGtadsHuawei {
-  static const methodChannel = MethodChannel('gtads_huawei');
+class MethodChannelGtadsHonor {
+  static const methodChannel = MethodChannel('gtads_honor');
 
   static Future<bool> init(bool debug) async {
     final result =

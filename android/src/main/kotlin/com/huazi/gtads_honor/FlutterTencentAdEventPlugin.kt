@@ -1,4 +1,4 @@
-package com.huazi.gtads_huawei
+package com.huazi.gtads_honor
 
 import android.content.Context
 import io.flutter.embedding.engine.plugins.FlutterPlugin

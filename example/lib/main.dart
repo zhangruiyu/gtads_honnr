@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gtads/gtads.dart';
+import 'package:gtads_honor/gtads_honor.dart';
 import 'dart:async';
-
-import 'package:gtads_huawei/gtads_huawei.dart';
-
 
 void main() {
   runApp(MyApp());
@@ -33,7 +31,7 @@ class _IndexState extends State<Index> {
   }
 
   Future<void> init() async {
-    GTAds.addProvider(GTAdsHuaweiProvider("huawei"));
+    GTAds.addProvider(GTAdsHonorProvider("honor"));
     initAd = await GTAds.init(isDebug: true);
     setState(() {});
   }
@@ -117,11 +115,10 @@ class _IndexState extends State<Index> {
                     var b = await GTAds.insertAd(
                         codes: [
                           GTAdsCode(
-                            alias: "huawei",
-                            probability: 5,
-                            androidId: "testb4znbuh3n2",
-                            ohosId: 'testb4znbuh3n2'
-                          )
+                              alias: "huawei",
+                              probability: 5,
+                              androidId: "testb4znbuh3n2",
+                              ohosId: 'testb4znbuh3n2')
                         ],
                         isFull: false,
                         timeout: 6,
