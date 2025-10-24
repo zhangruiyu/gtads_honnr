@@ -31,7 +31,7 @@ class _IndexState extends State<Index> {
   }
 
   Future<void> init() async {
-    GTAds.addProvider(GTAdsHonorProvider("honor"));
+    GTAds.addProvider(GTAdsHonorProvider("honor",'1640545857217757184','PuWq5LFla2vJ8XvZdHxsD7s6oYFg3zAGnL9ACczccvU'));
     initAd = await GTAds.init(isDebug: true);
     setState(() {});
   }
@@ -69,10 +69,9 @@ class _IndexState extends State<Index> {
                     var b = await GTAds.rewardAd(
                       codes: [
                         GTAdsCode(
-                          alias: "huawei",
+                          alias: "honor",
                           probability: 5,
-                          androidId: "testx9dtjwj8hp",
-                          ohosId: "testx9dtjwj8hp",
+                          androidId: "PuWq5LFla2vJ8XvZdHxsD7s6oYFg3zAGnL9ACczccvU",
                         )
                       ],
                       //奖励名称

@@ -4,9 +4,9 @@ import 'package:flutter/services.dart';
 class MethodChannelGtadsHonor {
   static const methodChannel = MethodChannel('gtads_honor');
 
-  static Future<bool> init(bool debug) async {
+  static Future<bool> init(bool debug,String appId,String appKey,) async {
     final result =
-        await methodChannel.invokeMethod<bool>('init', {'debug': debug});
+        await methodChannel.invokeMethod<bool>('init', {'debug': debug,'appId':appId,'appKey':appKey});
     return result!;
   }
 

@@ -15,7 +15,9 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
         // 配置鲸鸿动能SDK的Maven仓地址
-        maven { url 'https://developer.huawei.com/repo/' }
+        maven {
+            url = uri("https://developer.hihonor.com/repo/")
+        }
     }
 
     plugins {

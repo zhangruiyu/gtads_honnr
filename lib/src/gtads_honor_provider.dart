@@ -7,11 +7,12 @@ import 'flutter_huaweiad_stream.dart';
 import 'gtads_honor_plugin.dart';
 
 class GTAdsHonorProvider extends GTAdsProvider {
-  GTAdsHonorProvider(String alias) : super(alias, '', '');
+  GTAdsHonorProvider(String alias,String appId,this.appKey) : super(alias, appId, '');
 
+  final String appKey;
   @override
   Future<bool> initAd(bool isDebug) async {
-    return MethodChannelGtadsHonor.init(isDebug);
+    return MethodChannelGtadsHonor.init(isDebug,androidId!,appKey);
   }
 
   @override

@@ -2,9 +2,10 @@ package com.huazi.gtads_honor
 
 import android.app.Activity
 import android.content.Context
-import com.huawei.hms.ads.HwAds
+import com.hihonor.adsdk.base.HnAds
+import com.hihonor.adsdk.base.init.HnAdConfig
+import com.huazi.gtads_honor.rewardvideoad.RewardVideoAd
 import com.huazi.gtads_huawei.interstitialad.InterstitialAd
-import com.huazi.gtads_huawei.rewardvideoad.RewardVideoAd
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -57,9 +58,26 @@ class GtadsHonor : FlutterPlugin, MethodCallHandler, ActivityAware {
         when (call.method) {
             "init" -> {
                 val debug = call.argument<Boolean>("debug")
-                HwAds.init(applicationContext)
-                LogUtil.setAppName("flutter_huaweiad")
-                LogUtil.setShow(debug!!)
+                val appId = call.argument<String>("appId")
+                val appKey = call.argument<String>("appKey")
+
+                // 构造广告配置
+                val config = HnAdConfig.Builder()
+                    // 设置您的媒体id，媒体id是您在荣耀广告平台注册的媒体id
+                    .setAppId(appId)
+                    // 设置您的appKey，appKey是您在荣耀广告平台注册的媒体id对应的密钥:
+                    .setAppKey(appKey)
+                    .setDebug(debug!!)
+                    .useTestTools(appId == "1640545857217757184")
+                    .setRewardListener {
+                        // 获取激励动作类型
+                        val action: Int = it.getInt("reward_action")
+                        print("setRewardListener:${action}")
+                    }
+                    .build()
+
+                // 调用初始化接口 context 与 config 不能为null，否则将会抛出异常
+                HnAds.get().init(applicationContext, config)
                 result.success(true)
             }
 

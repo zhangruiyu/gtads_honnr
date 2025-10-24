@@ -3,7 +3,9 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://developer.huawei.com/repo/' }
+        maven {
+            url = uri("https://developer.hihonor.com/repo/")
+        }
     }
 
     dependencies {
@@ -15,7 +17,9 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://developer.huawei.com/repo/' }
+        maven {
+            url = uri("https://developer.hihonor.com/repo/")
+        }
     }
 }
 
